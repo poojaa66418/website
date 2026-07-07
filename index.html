@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glitter Moving Border</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#020024,#090979,#00d4ff);
+    overflow:hidden;
+}
+
+.card{
+    position:relative;
+    width:500px;
+    height:300px;
+    border-radius:25px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:2px solid rgba(255,255,255,.15);
+    box-shadow:0 0 30px rgba(0,255,255,.4);
+}
+
+canvas{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.content{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+    z-index:10;
+}
+
+.content h1{
+    font-size:40px;
+    margin-bottom:15px;
+    text-shadow:0 0 15px cyan;
+}
+
+.content p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+button{
+    padding:12px 35px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    color:white;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00e5ff,#ff00ff);
+    transition:.4s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px cyan;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <canvas id="canvas"></canvas>
+
+    <div class="content">
+        <h1>✨ Enter GalaxyVerse ✨</h1>
+        <p>Explore the endless universe, discover mysterious planets, and experience the beauty of galaxies beyond imagination.</p>
+        <a href="home.html"><button>🚀 Start Journey</button></a>
+    </div>
+</div>
+
+<script>
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+const card=document.querySelector(".card");
+
+function resize(){
+    canvas.width=card.clientWidth;
+    canvas.height=card.clientHeight;
+}
+resize();
+window.addEventListener("resize",resize);
+
+class Spark{
+    constructor(){
+        this.reset();
+    }
+
+    reset(){
+        this.size=Math.random()*3+1;
+        this.speed=Math.random()*2+1;
+
+        let side=Math.floor(Math.random()*4);
+
+        if(side===0){
+            this.x=0;
+            this.y=Math.random()*canvas.height;
+            this.dx=this.speed;
+            this.dy=0;
+        }
+
+        if(side===1){
+            this.x=Math.random()*canvas.width;
+            this.y=0;
+            this.dx=0;
+            this.dy=this.speed;
+        }
+
+        if(side===2){
+            this.x=canvas.width;
+            this.y=Math.random()*canvas.height;
+            this.dx=-this.speed;
+            this.dy=0;
+        }
+
+        if(side===3){
+            this.x=Math.random()*canvas.width;
+            this.y=canvas.height;
+            this.dx=0;
+            this.dy=-this.speed;
+        }
+
+        this.life=0;
+        this.maxLife=250;
+    }
+
+    update(){
+        this.x+=this.dx;
+        this.y+=this.dy;
+        this.life++;
+
+        if(
+            this.x<0 ||
+            this.x>canvas.width ||
+            this.y<0 ||
+            this.y>canvas.height ||
+            this.life>this.maxLife
+        ){
+            this.reset();
+        }
+    }
+
+    draw(){
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+
+        const colors=[
+            "#ffffff",
+            "#00ffff",
+            "#ff00ff",
+            "#ffff00",
+            "#00ff66",
+            "#ff8800"
+        ];
+
+        let color=colors[Math.floor(Math.random()*colors.length)];
+
+        ctx.fillStyle=color;
+        ctx.shadowBlur=20;
+        ctx.shadowColor=color;
+        ctx.fill();
+    }
+}
+
+const sparks=[];
+
+for(let i=0;i<180;i++){
+    sparks.push(new Spark());
+}
+
+function animate(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    sparks.forEach(s=>{
+        s.update();
+        s.draw();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
