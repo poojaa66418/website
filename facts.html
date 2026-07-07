@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GalaxyVerse | Universe Facts</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+min-height:100vh;
+
+background:
+
+radial-gradient(circle at top,#182b70,#02010b);
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+
+
+
+
+/* NAVBAR */
+
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00eaff;
+letter-spacing:2px;
+}
+
+nav a{
+
+text-decoration:none;
+color:white;
+transition:.3s;
+font-size:17px;
+margin-left:8px;
+
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+
+
+
+
+/* HERO */
+
+
+.hero{
+
+height:45vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+
+
+.hero h1{
+
+font-size:60px;
+
+animation:fade 2s;
+
+}
+
+
+.hero span{
+
+color:#00eaff;
+
+}
+
+
+.hero p{
+
+margin-top:15px;
+
+font-size:18px;
+
+opacity:.9;
+
+}
+
+
+
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+
+
+
+
+/* FACT SECTION */
+
+
+.container{
+
+padding:40px 8%;
+
+}
+
+
+
+.title{
+
+text-align:center;
+
+font-size:40px;
+
+color:#00eaff;
+
+margin-bottom:40px;
+
+}
+
+
+
+
+.fact-box{
+
+
+max-width:800px;
+
+margin:auto;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border:1px solid rgba(255,255,255,.2);
+
+
+padding:40px;
+
+
+border-radius:30px;
+
+
+text-align:center;
+
+
+backdrop-filter:blur(20px);
+
+
+box-shadow:
+
+0 0 40px rgba(0,234,255,.2);
+
+
+animation:float 4s infinite;
+
+
+}
+
+
+
+
+@keyframes float{
+
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+
+.fact-icon{
+
+font-size:60px;
+
+}
+
+
+
+#fact{
+
+font-size:22px;
+
+line-height:1.8;
+
+margin:25px 0;
+
+}
+
+
+
+
+
+/* BUTTONS */
+
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+button{
+
+
+padding:14px 35px;
+
+
+border:none;
+
+
+border-radius:50px;
+
+
+font-size:17px;
+
+
+cursor:pointer;
+
+
+color:white;
+
+
+background:
+
+linear-gradient(45deg,#00eaff,#7200ff);
+
+
+transition:.4s;
+
+
+}
+
+
+
+button:hover{
+
+
+transform:translateY(-5px);
+
+
+box-shadow:
+
+0 0 25px cyan;
+
+
+}
+
+
+
+
+
+.like{
+
+
+background:
+
+linear-gradient(45deg,#ff0066,#ff9900);
+
+}
+
+
+
+
+
+/* COUNTER */
+
+
+.counter{
+
+margin-top:25px;
+
+font-size:18px;
+
+color:#9befff;
+
+}
+
+
+
+
+
+/* EXTRA CARDS */
+
+
+.cards{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:30px;
+
+
+margin-top:60px;
+
+
+}
+
+
+
+.card{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:30px;
+
+
+border-radius:25px;
+
+
+text-align:center;
+
+
+transition:.4s;
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:translateY(-15px);
+
+
+box-shadow:
+
+0 0 30px cyan;
+
+
+}
+
+
+
+.card h2{
+
+color:#00eaff;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+
+
+/* STARS */
+
+
+.star{
+
+
+position:fixed;
+
+
+background:white;
+
+
+border-radius:50%;
+
+
+animation:twinkle 3s infinite;
+
+
+}
+
+
+
+@keyframes twinkle{
+
+
+50%{
+
+opacity:.2;
+
+transform:scale(1.5);
+
+}
+
+}
+
+
+
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.content h1{
+font-size:45px;
+}
+
+.typing{
+font-size:24px;
+}
+
+nav {
+gap:18px;
+}
+
+}
+
+@media(max-width:700px){
+
+nav a{
+
+margin-left:8px;
+
+font-size:14px;
+
+}
+
+}
+
+
+.nav-links{
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+.nav-links a{
+
+font-size:14px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<nav>
+
+
+<div class="logo">
+
+GalaxyVerse
+
+</div>
+
+
+<a href="home.html">Home</a>
+
+<a href="planets.html">Planets</a>
+
+<a href="solersystem.html">Solar System</a>
+
+<a href="facts.html">Universal Facts</a>
+
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+
+
+</nav>
+
+
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+
+Amazing <span>Universe Facts</span>
+
+</h1>
+
+
+<p>
+
+Explore mysteries, secrets and wonders of our endless universe 🌌
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="container">
+
+
+<h2 class="title">
+
+Random Fact Generator
+
+</h2>
+
+
+
+<div class="fact-box">
+
+
+<div class="fact-icon">
+
+🌌
+
+</div>
+
+
+<p id="fact">
+
+Click the button to discover a universe fact.
+
+</p>
+
+
+
+<div class="buttons">
+
+
+<button onclick="newFact()">
+
+🎲 New Fact
+
+</button>
+
+
+
+<button class="like" onclick="likeFact()">
+
+❤️ Like
+
+</button>
+
+
+
+<button onclick="shareFact()">
+
+📤 Share
+
+</button>
+
+
+
+</div>
+
+
+
+<div class="counter">
+
+Likes: <span id="likes">0</span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h2>🌞 Sun</h2>
+
+<p>
+
+The Sun contains about 99.8% of the total mass of our Solar System.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🌍 Earth</h2>
+
+<p>
+
+Earth is the only known planet with life.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>🌌 Galaxy</h2>
+
+<p>
+
+Milky Way contains billions of stars.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>🚀 Space</h2>
+
+<p>
+
+Space is almost completely silent because sound needs a medium.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<script>
+
+
+// STAR GENERATOR
+
+
+for(let i=0;i<200;i++){
+
+
+let star=document.createElement("div");
+
+
+star.className="star";
+
+
+let size=Math.random()*3;
+
+
+star.style.width=size+"px";
+
+
+star.style.height=size+"px";
+
+
+star.style.left=Math.random()*100+"vw";
+
+
+star.style.top=Math.random()*100+"vh";
+
+
+document.body.appendChild(star);
+
+
+}
+
+
+
+
+
+
+
+// FACT GENERATOR
+
+
+const facts=[
+
+
+"The universe is around 13.8 billion years old.",
+
+
+"There are more stars in the universe than grains of sand on Earth.",
+
+
+"A day on Venus is longer than its year.",
+
+
+"Neutron stars are incredibly dense cosmic objects.",
+
+
+"The largest known galaxies contain trillions of stars.",
+
+
+"Black holes have gravity so strong that even light cannot escape.",
+
+
+"The Milky Way galaxy is about 100,000 light-years wide.",
+
+
+"Light from distant stars shows us the past."
+
+];
+
+
+let currentFact="";
+
+
+
+function newFact(){
+
+
+let random=
+
+Math.floor(Math.random()*facts.length);
+
+
+
+currentFact=facts[random];
+
+
+document.getElementById("fact").innerHTML=currentFact;
+
+
+}
+
+
+
+
+
+// LIKE BUTTON
+
+
+let likes=0;
+
+
+function likeFact(){
+
+
+likes++;
+
+
+document.getElementById("likes").innerHTML=likes;
+
+
+}
+
+
+
+
+
+
+// SHARE BUTTON
+
+
+function shareFact(){
+
+
+if(navigator.share){
+
+
+navigator.share({
+
+title:"Universe Fact",
+
+text:currentFact
+
+});
+
+
+}
+
+else{
+
+
+alert("Fact copied: "+currentFact);
+
+
+}
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
