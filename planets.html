@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GalaxyVerse | Planets</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+
+body{
+
+background:
+linear-gradient(180deg,#020111,#050b25,#08143a);
+
+color:white;
+overflow-x:hidden;
+
+}
+
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00eaff;
+letter-spacing:1px;
+}
+
+nav a{
+
+text-decoration:none;
+color:white;
+transition:.3s;
+font-size:17px;
+margin-left:8px;
+
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+
+/* HERO */
+
+.hero{
+
+height:70vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+
+.hero h1{
+
+font-size:65px;
+
+}
+
+
+.hero span{
+
+color:#00eaff;
+
+}
+
+
+.hero p{
+
+max-width:700px;
+margin:20px auto;
+
+line-height:1.8;
+
+}
+
+
+
+/* PLANET SECTION */
+
+
+.container{
+
+padding:70px 8%;
+
+}
+
+
+.title{
+
+text-align:center;
+font-size:45px;
+margin-bottom:50px;
+
+color:#6cecff;
+
+}
+
+
+
+.planets{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:35px;
+
+}
+
+
+
+/* CARD */
+
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+border-radius:25px;
+
+padding:25px;
+
+text-align:center;
+
+backdrop-filter:blur(15px);
+
+transition:.5s;
+
+border:1px solid rgba(255,255,255,.1);
+
+}
+
+
+.card:hover{
+
+transform:translateY(-15px);
+
+box-shadow:
+0 0 30px cyan;
+
+}
+
+
+
+.card img{
+
+width:180px;
+height:180px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+animation:float 4s infinite;
+
+}
+
+
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+.card h2{
+
+margin:20px 0;
+
+color:#00eaff;
+
+}
+
+
+
+.card button{
+
+padding:12px 30px;
+
+border:none;
+
+border-radius:30px;
+
+background:
+linear-gradient(45deg,#00eaff,#7200ff);
+
+color:white;
+
+cursor:pointer;
+
+margin-top:15px;
+
+transition:.3s;
+
+}
+
+
+.card button:hover{
+
+box-shadow:0 0 20px cyan;
+
+}
+
+
+
+/* STARS */
+
+
+.star{
+
+position:fixed;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle 3s infinite;
+
+}
+
+
+
+@keyframes twinkle{
+
+50%{
+
+opacity:.2;
+
+transform:scale(1.5);
+
+}
+
+}
+
+
+
+/* POPUP */
+
+
+.popup{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%) scale(0);
+
+width:80%;
+max-width:500px;
+
+background:#050b25;
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:0 0 40px cyan;
+
+z-index:2000;
+
+transition:.4s;
+
+text-align:center;
+
+}
+
+
+
+.popup.active{
+
+transform:
+translate(-50%,-50%) scale(1);
+
+}
+
+
+.close{
+
+background:red;
+
+padding:10px 25px;
+
+border:none;
+
+border-radius:20px;
+
+color:white;
+
+margin-top:20px;
+
+cursor:pointer;
+
+}
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:900px){
+
+.content h1{
+font-size:45px;
+}
+
+.typing{
+font-size:24px;
+}
+
+nav {
+gap:18px;
+}
+
+}
+
+@media(max-width:700px){
+
+nav a{
+
+margin-left:8px;
+
+font-size:14px;
+
+}
+
+}
+
+
+.nav-links{
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+.nav-links a{
+
+font-size:14px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="logo">
+GalaxyVerse
+</div>
+
+<a href="home.html">Home</a>
+
+<a href="planets.html">Planets</a>
+
+<a href="solersystem.html">Solar System</a>
+
+<a href="facts.html">Universal Facts</a>
+
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+
+</nav>
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+<h1>
+
+Explore The 
+<span>Planets</span>
+
+</h1>
+
+
+<p>
+
+Discover amazing worlds of our solar system and learn interesting facts about each planet.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="container" id="planets">
+
+
+<h1 class="title">
+
+Solar System Planets
+
+</h1>
+
+
+
+<div class="planets">
+
+
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg">
+
+<h2>Mercury</h2>
+
+<p>Smallest planet and closest to Sun.</p>
+
+<button onclick="showInfo('Mercury','Mercury has extreme temperatures and no atmosphere.')">
+
+Explore
+
+</button>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg">
+
+<h2>Venus</h2>
+
+<p>Hottest planet in our solar system.</p>
+
+<button onclick="showInfo('Venus','Venus has thick clouds and a toxic atmosphere.')">
+
+Explore
+
+</button>
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg">
+
+
+<h2>Earth</h2>
+
+<p>Our beautiful blue planet.</p>
+
+
+<button onclick="showInfo('Earth','Earth is the only known planet with life.')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg">
+
+
+<h2>Mars</h2>
+
+<p>The red planet.</p>
+
+
+<button onclick="showInfo('Mars','Mars has the largest volcano in the solar system.')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg">
+
+
+<h2>Jupiter</h2>
+
+<p>Largest planet in solar system.</p>
+
+
+<button onclick="showInfo('Jupiter','Jupiter is a gas giant with a huge storm called Great Red Spot.')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg">
+
+
+<h2>Saturn</h2>
+
+<p>Famous for beautiful rings.</p>
+
+
+<button onclick="showInfo('Saturn','Saturn has thousands of ice and rock particles forming rings.')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg">
+
+
+<h2>Uranus</h2>
+
+<p>Ice giant with blue color.</p>
+
+
+<button onclick="showInfo('Uranus','Uranus rotates sideways compared to other planets.')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg">
+
+
+<h2>Neptune</h2>
+
+<p>Farthest planet from Sun.</p>
+
+
+<button onclick="showInfo('Neptune','Neptune has the strongest winds in the solar system.')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+<div class="popup" id="popup">
+
+
+<h2 id="planetName"></h2>
+
+<p id="planetInfo"></p>
+
+
+<button class="close" onclick="closePopup()">
+
+Close
+
+</button>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+// CREATE STARS
+
+for(let i=0;i<200;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+
+let size=Math.random()*3;
+
+
+star.style.width=size+"px";
+
+star.style.height=size+"px";
+
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+
+document.body.appendChild(star);
+
+
+}
+
+
+
+
+
+// PLANET POPUP
+
+
+function showInfo(name,info){
+
+
+document.getElementById("planetName").innerHTML=name;
+
+
+document.getElementById("planetInfo").innerHTML=info;
+
+
+document.getElementById("popup").classList.add("active");
+
+
+}
+
+
+
+function closePopup(){
+
+
+document.getElementById("popup").classList.remove("active");
+
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>
