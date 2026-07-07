@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GalaxyVerse</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(180deg,#020111,#050b25,#08143a);
+color:white;
+overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00eaff;
+letter-spacing:2px;
+}
+
+nav a{
+
+text-decoration:none;
+color:white;
+transition:.3s;
+font-size:17px;
+margin-left:8px;
+
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+/*================ HERO ================*/
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+.content{
+z-index:5;
+}
+
+.content h1{
+font-size:65px;
+margin-bottom:15px;
+}
+
+.content h1 span{
+color:#00eaff;
+}
+
+.typing{
+font-size:32px;
+height:45px;
+margin-bottom:30px;
+color:#6cecff;
+font-weight:600;
+}
+
+.content p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+opacity:.9;
+margin-bottom:35px;
+}
+
+.btn{
+padding:15px 45px;
+border:none;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+background:linear-gradient(45deg,#00eaff,#6f00ff);
+color:white;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-6px);
+box-shadow:0 0 30px cyan;
+}
+
+/*============== STARS ==============*/
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle linear infinite;
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:.2;
+transform:scale(.5);
+}
+
+50%{
+opacity:1;
+transform:scale(1.3);
+}
+
+}
+
+
+/*============== Responsive ==============*/
+
+@media(max-width:900px){
+
+.content h1{
+font-size:45px;
+}
+
+.typing{
+font-size:24px;
+}
+
+nav {
+gap:18px;
+}
+
+}
+
+@media(max-width:700px){
+
+nav a{
+
+margin-left:8px;
+
+font-size:14px;
+
+}
+
+}
+
+
+.nav-links{
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+.nav-links a{
+
+font-size:14px;
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+GalaxyVerse
+</div>
+
+<a href="home.html">Home</a>
+
+<a href="planets.html">Planets</a>
+
+<a href="solersystem.html">Solar System</a>
+
+<a href="facts.html">Universal Facts</a>
+
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+
+</nav>
+
+<section class="hero">
+
+<div class="content">
+
+<h1>
+Welcome to
+<span>GalaxyVerse</span>
+</h1>
+
+<div class="typing"></div>
+
+<p>
+
+Embark on an incredible journey through the cosmos. Explore breathtaking planets, discover amazing space facts, and experience the wonders of our universe.
+
+</p>
+
+<button class="btn">
+Explore Universe
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+/*========== Typing ==========*/
+
+const words=["Explore","Learn","Discover","Imagine"];
+
+let i=0;
+let j=0;
+let current="";
+let isDeleting=false;
+
+function type(){
+
+current=words[i];
+
+if(isDeleting){
+
+j--;
+
+}else{
+
+j++;
+
+}
+
+document.querySelector(".typing").textContent=current.substring(0,j);
+
+if(!isDeleting && j==current.length){
+
+isDeleting=true;
+
+setTimeout(type,1000);
+
+return;
+
+}
+
+if(isDeleting && j==0){
+
+isDeleting=false;
+
+i++;
+
+if(i==words.length){
+
+i=0;
+
+}
+
+}
+
+setTimeout(type,isDeleting?70:120);
+
+}
+
+type();
+
+/*=========== Stars ===========*/
+
+for(let i=0;i<180;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+let size=Math.random()*3;
+
+star.style.width=size+"px";
+
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDuration=(2+Math.random()*5)+"s";
+
+document.body.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
