@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GalaxyVerse Solar System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+background:
+radial-gradient(circle at top,#182b70,#02010b);
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00eaff;
+letter-spacing:2px;
+}
+
+nav a{
+
+text-decoration:none;
+color:white;
+transition:.3s;
+font-size:17px;
+margin-left:8px;
+
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+
+
+
+/* TITLE */
+
+
+header{
+
+height:150px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding-top:60px;
+
+}
+
+
+header h1{
+
+font-size:45px;
+
+}
+
+
+header span{
+
+color:#00eaff;
+
+}
+
+
+
+/* SOLAR AREA */
+
+
+.space{
+
+height:650px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+}
+
+
+
+
+
+/* SUN */
+
+
+.sun{
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+
+background:
+
+radial-gradient(circle,#fff,#ffe600,#ff5500);
+
+
+box-shadow:
+
+0 0 40px yellow,
+0 0 100px orange;
+
+
+animation:pulse 3s infinite;
+
+z-index:5;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+}
+
+
+
+/* ORBITS */
+
+
+.orbit{
+
+position:absolute;
+
+border-radius:50%;
+
+border:2px dashed rgba(0,238,255,.35);
+
+
+box-shadow:
+
+0 0 20px rgba(0,238,255,.3);
+
+
+animation:rotate linear infinite;
+
+
+cursor:pointer;
+
+}
+
+
+.orbit:hover{
+
+border-color:white;
+
+box-shadow:0 0 40px cyan;
+
+}
+
+
+
+@keyframes rotate{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+/* PLANETS */
+
+
+.planet{
+
+position:absolute;
+
+top:-12px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+border-radius:50%;
+
+}
+
+
+
+.name{
+
+position:absolute;
+
+top:-38px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:12px;
+
+white-space:nowrap;
+
+text-shadow:0 0 10px cyan;
+
+}
+
+
+
+
+.mercury{
+
+width:12px;
+height:12px;
+
+background:#aaa;
+
+}
+
+
+.venus{
+
+width:18px;
+height:18px;
+
+background:#d89145;
+
+}
+
+
+
+.earth{
+
+width:25px;
+height:25px;
+
+background:linear-gradient(45deg,#0099ff,#20c933);
+
+box-shadow:0 0 15px cyan;
+
+}
+
+
+
+.mars{
+
+width:18px;
+height:18px;
+
+background:#e33b20;
+
+}
+
+
+
+.jupiter{
+
+width:45px;
+height:45px;
+
+background:linear-gradient(#d69b55,#fff,#a45b30);
+
+}
+
+
+
+.saturn{
+
+width:40px;
+height:40px;
+
+background:#e7c57b;
+
+}
+
+
+.saturn:after{
+
+content:"";
+
+position:absolute;
+
+width:75px;
+
+height:18px;
+
+border:3px solid #e8d39b;
+
+border-radius:50%;
+
+left:-18px;
+
+top:10px;
+
+}
+
+
+
+
+.uranus{
+
+width:30px;
+
+height:30px;
+
+background:#70e6ff;
+
+}
+
+
+
+.neptune{
+
+width:30px;
+
+height:30px;
+
+background:#3155ff;
+
+}
+
+
+
+
+/* ORBIT SIZE */
+
+
+.o1{width:140px;height:140px;animation-duration:8s;}
+.o2{width:200px;height:200px;animation-duration:12s;}
+.o3{width:270px;height:270px;animation-duration:18s;}
+.o4{width:340px;height:340px;animation-duration:25s;}
+.o5{width:430px;height:430px;animation-duration:32s;}
+.o6{width:500px;height:500px;animation-duration:40s;}
+.o7{width:570px;height:570px;animation-duration:50s;}
+.o8{width:640px;height:640px;animation-duration:60s;}
+
+
+
+
+
+/* POPUP */
+
+
+.popup{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%) scale(0);
+
+width:320px;
+
+padding:30px;
+
+background:#050b25;
+
+border-radius:20px;
+
+box-shadow:0 0 40px cyan;
+
+text-align:center;
+
+z-index:2000;
+
+transition:.4s;
+
+}
+
+
+
+.popup.active{
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+
+.popup h2{
+
+color:#00eaff;
+
+}
+
+
+
+.popup button{
+
+margin-top:20px;
+
+padding:10px 25px;
+
+border:none;
+
+border-radius:20px;
+
+background:#00eaff;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+/* FACTS */
+
+
+.info{
+
+text-align:center;
+
+padding:30px;
+
+}
+
+
+.info h2{
+
+font-size:35px;
+
+color:#00eaff;
+
+}
+
+
+
+
+
+/* STARS */
+
+
+.star{
+
+position:fixed;
+
+background:white;
+
+border-radius:50%;
+
+animation:blink 3s infinite;
+
+}
+
+
+@keyframes blink{
+
+50%{
+
+opacity:.2;
+
+}
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.content h1{
+font-size:45px;
+}
+
+.typing{
+font-size:24px;
+}
+
+nav {
+gap:18px;
+}
+
+}
+
+@media(max-width:700px){
+
+nav a{
+
+margin-left:8px;
+
+font-size:14px;
+
+}
+
+}
+
+
+.nav-links{
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+.nav-links a{
+
+font-size:14px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<nav>
+
+<div class="logo">
+GalaxyVerse
+</div>
+
+<a href="home.html">Home</a>
+
+<a href="planets.html">Planets</a>
+
+<a href="solersystem.html">Solar System</a>
+
+<a href="facts.html">Universal Facts</a>
+
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+
+
+</nav>
+
+
+
+<header>
+
+<h1>
+
+Our <span>Solar System</span>
+
+</h1>
+
+</header>
+
+
+
+<section class="space">
+
+
+<div class="sun"></div>
+
+
+
+<div class="orbit o1" onclick="showPlanet('Mercury','Closest planet to Sun','57.9 million km','0 moons')">
+<div class="planet mercury"></div>
+<div class="name">Mercury</div>
+</div>
+
+
+
+<div class="orbit o2" onclick="showPlanet('Venus','Hottest planet','108 million km','0 moons')">
+<div class="planet venus"></div>
+<div class="name">Venus</div>
+</div>
+
+
+
+
+<div class="orbit o3" onclick="showPlanet('Earth','Only known planet with life','149.6 million km','1 Moon')">
+<div class="planet earth"></div>
+<div class="name">Earth</div>
+</div>
+
+
+
+
+<div class="orbit o4" onclick="showPlanet('Mars','Red Planet','227.9 million km','2 moons')">
+<div class="planet mars"></div>
+<div class="name">Mars</div>
+</div>
+
+
+
+
+<div class="orbit o5" onclick="showPlanet('Jupiter','Largest planet','778 million km','95 moons')">
+<div class="planet jupiter"></div>
+<div class="name">Jupiter</div>
+</div>
+
+
+
+
+<div class="orbit o6" onclick="showPlanet('Saturn','Planet with famous rings','1.4 billion km','146 moons')">
+<div class="planet saturn"></div>
+<div class="name">Saturn</div>
+</div>
+
+
+
+
+<div class="orbit o7" onclick="showPlanet('Uranus','Ice giant planet','2.9 billion km','27 moons')">
+<div class="planet uranus"></div>
+<div class="name">Uranus</div>
+</div>
+
+
+
+
+<div class="orbit o8" onclick="showPlanet('Neptune','Farthest planet','4.5 billion km','14 moons')">
+<div class="planet neptune"></div>
+<div class="name">Neptune</div>
+</div>
+
+
+</section>
+
+
+
+
+<section class="info">
+
+<h2>Solar System Facts</h2>
+
+<p>
+
+☀ Sun is the center of Solar System<br>
+
+🌍 Earth supports life<br>
+
+🪐 Saturn has beautiful rings<br>
+
+🌌 Solar System is inside Milky Way Galaxy
+
+</p>
+
+
+</section>
+
+
+
+
+
+<div class="popup" id="popup">
+
+
+<h2 id="pname"></h2>
+
+<p id="pdata"></p>
+
+
+<button onclick="closePopup()">
+
+Close
+
+</button>
+
+
+</div>
+
+
+
+
+<script>
+
+
+// CREATE STARS
+
+for(let i=0;i<200;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+let size=Math.random()*3;
+
+s.style.width=size+"px";
+
+s.style.height=size+"px";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(s);
+
+}
+
+
+
+
+
+function showPlanet(name,desc,distance,moon){
+
+
+document.getElementById("pname").innerHTML=name;
+
+
+document.getElementById("pdata").innerHTML=
+
+desc+
+"<br><br>Distance : "+distance+
+"<br>Moons : "+moon;
+
+
+document.getElementById("popup").classList.add("active");
+
+
+}
+
+
+
+function closePopup(){
+
+document.getElementById("popup").classList.remove("active");
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
