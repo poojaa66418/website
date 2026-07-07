@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GalaxyVerse | About</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+
+}
+
+
+body{
+
+min-height:100vh;
+
+background:
+
+radial-gradient(circle at top,#182b70,#02010b);
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+
+
+
+/* NAVBAR */
+
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#00eaff;
+letter-spacing:2px;
+}
+
+nav a{
+
+text-decoration:none;
+color:white;
+transition:.3s;
+font-size:17px;
+margin-left:8px;
+
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+
+
+
+
+
+/* HERO */
+
+
+.hero{
+
+
+height:80vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+
+}
+
+
+
+.hero h1{
+
+
+font-size:65px;
+
+
+background:
+
+linear-gradient(
+90deg,
+#00eaff,
+white,
+#8a00ff,
+#00eaff
+);
+
+
+background-size:300%;
+
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+
+animation:gradient 5s infinite;
+
+
+}
+
+
+
+
+@keyframes gradient{
+
+
+100%{
+
+background-position:300%;
+
+}
+
+
+}
+
+
+
+.hero p{
+
+
+max-width:700px;
+
+margin:25px auto;
+
+font-size:18px;
+
+line-height:1.8;
+
+opacity:.9;
+
+
+}
+
+
+
+
+
+/* SECTIONS */
+
+
+.container{
+
+padding:60px 8%;
+
+}
+
+
+
+
+
+.title{
+
+text-align:center;
+
+font-size:42px;
+
+color:#00eaff;
+
+margin-bottom:40px;
+
+}
+
+
+
+/* ABOUT CARD */
+
+
+.about-box{
+
+
+display:flex;
+
+gap:40px;
+
+align-items:center;
+
+justify-content:center;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:40px;
+
+
+border-radius:30px;
+
+
+backdrop-filter:blur(20px);
+
+
+box-shadow:
+
+0 0 40px rgba(0,234,255,.25);
+
+
+animation:float 5s infinite;
+
+
+}
+
+
+
+@keyframes float{
+
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+
+}
+
+
+
+
+
+.planet{
+
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+
+background:
+
+radial-gradient(circle at 30% 30%,
+#00eaff,
+#004cff,
+#02010b);
+
+
+box-shadow:
+
+
+0 0 40px cyan,
+0 0 100px blue;
+
+
+animation:rotate 12s linear infinite;
+
+
+}
+
+
+
+@keyframes rotate{
+
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+
+.about-text{
+
+max-width:600px;
+
+line-height:1.9;
+
+font-size:17px;
+
+}
+
+
+
+
+/* MISSION CARDS */
+
+
+.cards{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:30px;
+
+
+}
+
+
+
+.card{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+padding:30px;
+
+
+border-radius:25px;
+
+
+text-align:center;
+
+
+transition:.4s;
+
+
+border:1px solid rgba(255,255,255,.2);
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:
+
+translateY(-15px)
+scale(1.05);
+
+
+box-shadow:
+
+0 0 35px cyan;
+
+
+}
+
+
+
+.card h2{
+
+
+color:#00eaff;
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+
+/* JOURNEY */
+
+
+.timeline{
+
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:25px;
+
+
+}
+
+
+
+.step{
+
+
+width:220px;
+
+padding:25px;
+
+
+text-align:center;
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(0,234,255,.15),
+rgba(120,0,255,.15)
+);
+
+
+border-radius:25px;
+
+
+}
+
+
+
+
+
+/* FOOTER */
+
+
+footer{
+
+
+text-align:center;
+
+padding:30px;
+
+color:#9befff;
+
+
+}
+
+
+
+
+
+/* STARS */
+
+
+.star{
+
+
+position:fixed;
+
+background:white;
+
+border-radius:50%;
+
+
+animation:twinkle 3s infinite;
+
+
+}
+
+
+
+@keyframes twinkle{
+
+
+50%{
+
+opacity:.2;
+
+transform:scale(1.5);
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:900px){
+
+.content h1{
+font-size:45px;
+}
+
+.typing{
+font-size:24px;
+}
+
+nav {
+gap:18px;
+}
+
+}
+
+@media(max-width:700px){
+
+nav a{
+
+margin-left:8px;
+
+font-size:14px;
+
+}
+
+}
+
+
+.nav-links{
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+.nav-links a{
+
+font-size:14px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<nav>
+
+
+<div class="logo">
+
+GalaxyVerse
+
+</div>
+
+
+<a href="home.html">Home</a>
+
+<a href="planets.html">Planets</a>
+
+<a href="solersystem.html">Solar System</a>
+
+<a href="facts.html">Universal Facts</a>
+
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+
+
+
+</nav>
+
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+
+Explore The Universe With GalaxyVerse
+
+</h1>
+
+
+<p>
+
+GalaxyVerse is a digital journey through space where you can discover planets, galaxies, cosmic mysteries and amazing facts about our endless universe.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="container">
+
+
+<h2 class="title">
+
+Who We Are
+
+</h2>
+
+
+
+<div class="about-box">
+
+
+<div class="planet"></div>
+
+
+
+<div class="about-text">
+
+
+GalaxyVerse is created to bring the beauty of space closer to everyone.
+
+Our mission is to make learning about the universe exciting, interactive and visually amazing.
+
+
+<br><br>
+
+
+From planets and stars to galaxies and cosmic events, we explore the wonders hidden beyond Earth.
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="container">
+
+
+<h2 class="title">
+
+Our Mission
+
+</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h2>🌌 Explore</h2>
+
+<p>
+
+Discover planets, galaxies and mysteries of deep space.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🚀 Learn</h2>
+
+<p>
+
+Understand astronomy through interactive experiences.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>⭐ Inspire</h2>
+
+<p>
+
+Encourage curiosity about science and the universe.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>🌍 Connect</h2>
+
+<p>
+
+Bring space lovers together from around the world.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="container">
+
+
+<h2 class="title">
+
+GalaxyVerse Journey
+
+</h2>
+
+
+<div class="timeline">
+
+
+<div class="step">
+
+🌎
+
+<h3>Earth</h3>
+
+<p>Our starting point</p>
+
+</div>
+
+
+<div class="step">
+
+🌙
+
+<h3>Moon</h3>
+
+<p>First cosmic neighbour</p>
+
+</div>
+
+
+
+<div class="step">
+
+🪐
+
+<h3>Planets</h3>
+
+<p>Explore our Solar System</p>
+
+</div>
+
+
+
+<div class="step">
+
+🌌
+
+<h3>Galaxy</h3>
+
+<p>Discover infinite space</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 GalaxyVerse | Explore Beyond Limits 🚀
+
+</footer>
+
+
+
+
+
+
+
+<script>
+
+
+// stars
+
+
+for(let i=0;i<180;i++){
+
+
+let star=document.createElement("div");
+
+
+star.className="star";
+
+
+let size=Math.random()*3;
+
+
+star.style.width=size+"px";
+
+
+star.style.height=size+"px";
+
+
+star.style.left=Math.random()*100+"vw";
+
+
+star.style.top=Math.random()*100+"vh";
+
+
+document.body.appendChild(star);
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
